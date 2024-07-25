@@ -9,15 +9,15 @@ function Navbar() {
 
         <div className="flex gap-10">
           <div>
-            <NavLink className="bg-blue-400 px-5 py-3 rounded-md hover:bg-blue-500">
-              <i class="ri-shopping-cart-2-line mr-2 text-xl text-white"></i>
+            <NavLink className="bg-blue-500 px-5 py-3 rounded-md hover:bg-blue-400">
+              <i class="ri-shopping-cart-2-line mr-2 text-2xl text-white"></i>
               <span className="text-white">Cart</span>
             </NavLink>
           </div>
 
           <div>
-            <NavLink className="bg-blue-400 px-5 py-3 rounded-md hover:bg-blue-500">
-              <i class="ri-account-circle-line text-xl mr-2 text-white"></i>
+            <NavLink to={"login"} className="bg-blue-500 px-5 py-3 rounded-md hover:bg-blue-400">
+              <i class="ri-account-circle-line text-2xl mr-2 text-white"></i>
               <span className="text-white">Login</span>
             </NavLink>
           </div>
