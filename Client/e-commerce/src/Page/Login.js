@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Login() {
   return (
-    <div className='h-screen'>
-
-    </div>
-  )
+    <>
+      <div>Login Page</div>
+    </>
+  );
 }
 
-export default Login
+export default Login;
