@@ -30,7 +30,7 @@ export const Registration = createAsyncThunk(
   }
 );
 
-export const Login = createAsyncThunk(
+export const LoginFeature = createAsyncThunk(
   "auth/login",
   async (user, thunkAPI) => {
     try {
@@ -86,18 +86,18 @@ const authSlice = createSlice({
 
     // Login cases
     builder
-      .addCase(Login.pending, (state) => {
+      .addCase(LoginFeature.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
       })
-      .addCase(Login.fulfilled, (state, action) => {
+      .addCase(LoginFeature.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isLogged = true;
         state.data = action.payload.user;
         state.errorMessage = null;
         saveUserToLocalStorage(action.payload.user); // Save user to local storage
       })
-      .addCase(Login.rejected, (state, action) => {
+      .addCase(LoginFeature.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.errorMessage = action.payload.message || "Login failed";

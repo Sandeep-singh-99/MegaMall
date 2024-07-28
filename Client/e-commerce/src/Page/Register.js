@@ -1,47 +1,56 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Registration } from "../redux/slice/authSlice";
-import {message} from 'antd'
+import { message } from "antd";
+
+import Signup from "../assets/auth/signup.png";
 
 function Register() {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
   const dispatch = useDispatch();
 
-   const { isLoading, isError, errorMessage} = useSelector((state) => state.auth);
+  const { isLoading, isError, errorMessage } = useSelector(
+    (state) => state.auth
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = {username, email, phone, password}
+    const user = { username, email, phone, password };
     dispatch(Registration(user));
-    message.success("Resgistration successfully")
-    setUserName('')
-    setEmail('')
-    setPhone('')
-    setPassword('')
-    
+    message.success("Resgistration successfully");
+    navigate("/home")
+    setUserName("");
+    setEmail("");
+    setPhone("");
+    setPassword("");
   };
 
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
   }
 
   if (isError) {
-    return <h1>Error...</h1>
+    return <h1>Error...</h1>;
   }
 
   if (errorMessage) {
-    return <h1>{errorMessage}</h1>
+    return <h1>{errorMessage}</h1>;
   }
 
   return (
-    <div className="h-screen bg-gradient-to-r from-purple-600 to-blue-500 ">
-      <div className="flex justify-center items-center pt-20">
-        <div className="bg-white rounded-lg px-5 py-5 w-[30%]">
+    <div className="h-screen">
+      <div className="flex justify-around items-center pt-5">
+        <div>
+          <img src={Signup} alt="not showing" />
+        </div>
+
+        <div className="bg-white shadow-2xl shadow-gray-500 rounded-lg px-5 py-5 w-[30%]">
           <form onSubmit={handleSubmit}>
             <div className="space-y-1 mb-5">
               <h1 className="text-4xl font-semibold">Registration</h1>
@@ -55,6 +64,7 @@ function Register() {
                 value={username}
                 onChange={(e) => setUserName(e.target.value)}
                 placeholder="Enter your name"
+                autoComplete="off"
                 required
               />
             </div>
@@ -66,6 +76,7 @@ function Register() {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                autoComplete="off"
                 placeholder="Enter your Email"
               />
             </div>
@@ -77,6 +88,7 @@ function Register() {
                 name="phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+                autoComplete="off"
                 placeholder="Enter your Phone no"
               />
             </div>
@@ -88,13 +100,14 @@ function Register() {
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoComplete="off"
                 placeholder="Enter your Password"
               />
             </div>
 
             <div>
               <button className="bg-gradient-to-r from-blue-900 to-purple-700 w-full py-3 text-white font-semibold text-xl rounded-md">
-                Register
+                Signup
               </button>
             </div>
           </form>
@@ -102,7 +115,7 @@ function Register() {
             <label>
               Already have an account?
               <NavLink className="text-blue-700" to="/login">
-                Login Now
+                Login 
               </NavLink>
             </label>
           </div>
