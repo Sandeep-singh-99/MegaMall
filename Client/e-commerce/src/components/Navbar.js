@@ -20,9 +20,9 @@ function Navbar() {
   }
 
   return (
-    <div className="px-5 shadow-lg bg-[#162a38] ">
+    <div className="px-14 shadow-lg bg-[#162a38] ">
       <div className="flex justify-between py-3 items-center">
-        <NavLink to={"home"}>
+        <NavLink to={"/"}>
           <h1 className="text-3xl text-white font-semibold">MegaMall</h1>
         </NavLink>
 
@@ -38,31 +38,33 @@ function Navbar() {
           ) : (
             <div className="">
               <div>
-                <NavLink to={"login"}>
+                <NavLink to={"/login"}>
                   <i class="ri-account-circle-fill text-white text-2xl"></i>
                   {/* <span className="font-semibold">Login</span> */}
                 </NavLink>
               </div>
             </div>
           )}
-          <div className="z-auto invisible  shadow-2xl rounded-md absolute bg-white group-hover:visible">
-            <div className="px-5 py-2 hover:bg-gray-200">
-            <i class="ri-user-fill  font-semibold mr-4"></i>
-            <span className="font-semibold">Profile</span>
+          <div className="z-auto pt-3 -ml-11 invisible bg-[#162a38]  shadow-2xl rounded-md absolute  group-hover:visible">
+            <div className="px-5 py-2 ">
+            <i class="ri-user-fill  font-semibold mr-4 text-white"></i>
+            <span className="font-semibold text-white">Profile</span>
             </div>
+
 
            {isLogged &&(
              <div onClick={handlelogout} className="px-5 py-2 hover:bg-gray-200">
-             <i class="ri-logout-circle-r-line  font-semibold mr-3"></i>
-             <span className="font-semibold">Logout</span>
+             <i class="ri-logout-circle-r-line  font-semibold mr-3 text-white"></i>
+             <span className="font-semibold text-white">Logout</span>
              </div>
            )}
           </div>
-
           </div>
 
+         
+
           <div>
-            <NavLink>
+            <NavLink to={"/cart"}>
               <i class="ri-shopping-cart-2-fill text-white text-2xl"></i>
               {/* <span className="font-semibold">Cart</span> */}
             </NavLink>
