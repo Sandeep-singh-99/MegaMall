@@ -1,0 +1,20 @@
+const express = require("express")
+const router = express.Router()
+const validate = require("../../middleware/validate-middleware")
+const signup = require("../../validators/auth-registration")
+const signIn = require("../../validators/auth-login")
+const LoginController = require("../../controller/Auth/Login")
+const RegistrationController = require("../../controller/Auth/Registration")
+const AdminLogin = require("../../controller/Auth/AdminLogin")
+
+
+
+router.route("/register").post(validate(signup), RegistrationController)
+
+router.route("/login").post(validate(signIn), LoginController)
+
+router.route("/admin").post(AdminLogin)
+
+
+
+module.exports = router

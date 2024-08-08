@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer, { setCredentials } from "./slice/authSlice";
+import uploadReducer from "./slice/uploadSlice";
 
 const token = localStorage.getItem("token");
 const preloadedState = token
@@ -9,6 +10,7 @@ const preloadedState = token
 const store = configureStore({
   reducer: {
     auth: authReducer,
+    product: uploadReducer
   },
   preloadedState,
   devTools: true

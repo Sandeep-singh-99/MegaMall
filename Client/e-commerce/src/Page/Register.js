@@ -11,6 +11,9 @@ function Register() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+
+  
+
   const navigate = useNavigate()
 
   const dispatch = useDispatch();
@@ -21,7 +24,7 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = { username, email, phone, password };
+    const user = { username, email, phone, password};
     dispatch(Registration(user));
     message.success("Resgistration successfully");
     navigate("/home")

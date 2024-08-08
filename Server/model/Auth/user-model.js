@@ -22,10 +22,6 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-
-    img: {
-        type: String
-    }
 })
 
 // Secure the password with the bcrypt
